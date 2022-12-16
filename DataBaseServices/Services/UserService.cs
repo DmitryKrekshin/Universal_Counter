@@ -14,14 +14,14 @@ public class UserService : IUserService
 
     public void Update(UserEntity userEntity)
     {
-        var categoryToUpdate = _context.Users.Find(userEntity.Id);
+        var userToUpdate = _context.Users.Find(userEntity.Id);
 
-        if (categoryToUpdate == null)
+        if (userToUpdate == null)
         {
             throw new NullReferenceException("User doesn't exists");
         }
 
-        categoryToUpdate = userEntity;
+        userToUpdate = userEntity;
         _context.SaveChangesAsync();
     }
     
