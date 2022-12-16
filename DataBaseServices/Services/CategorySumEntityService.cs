@@ -24,7 +24,7 @@ public class CategorySumEntityService : ICategorySumEntity
             throw new NullReferenceException("CategorySum doesn't exists");
         }
 
-        _context.CategorySums.Update(categorySumEntity);
+        categorySumToUpdate = categorySumEntity;
         _context.SaveChangesAsync();
     }
 
