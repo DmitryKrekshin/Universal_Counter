@@ -7,4 +7,8 @@
         <RootNamespace>Category</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Managers" />
+    </ItemGroup>
+
 </Project>
