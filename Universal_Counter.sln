@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6659A075-9AF0-4D63-A25D-88C54F0E11CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCounter", "UniversalCounter\UniversalCounter.csproj", "{62C9874F-43B5-4495-9934-08D80B46A80C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseServices", "DataBaseServices\DataBaseServices.csproj", "{613C9A9D-B424-455E-A9A4-F37970BD9B43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62C9874F-43B5-4495-9934-08D80B46A80C} = {6659A075-9AF0-4D63-A25D-88C54F0E11CE}
+		{613C9A9D-B424-455E-A9A4-F37970BD9B43} = {6659A075-9AF0-4D63-A25D-88C54F0E11CE}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C9874F-43B5-4495-9934-08D80B46A80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C9874F-43B5-4495-9934-08D80B46A80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C9874F-43B5-4495-9934-08D80B46A80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C9874F-43B5-4495-9934-08D80B46A80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
