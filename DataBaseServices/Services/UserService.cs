@@ -6,13 +6,13 @@ public class UserService : IUserService
 
     public UserService(Context context) => _context = context;
 
-    public void AddUser(UserEntity userEntity)
+    public void Add(UserEntity userEntity)
     {
         _context.Users.AddAsync(userEntity);
         _context.SaveChangesAsync();
     }
 
-    public void UpdateUser(UserEntity userEntity)
+    public void Update(UserEntity userEntity)
     {
         var categoryToUpdate = _context.Users.Find(userEntity.Id);
 
@@ -25,7 +25,7 @@ public class UserService : IUserService
         _context.SaveChangesAsync();
     }
     
-    public void DeleteUser(int userId)
+    public void Delete(int userId)
     {
         var userToDelete = _context.Users.Find(userId);
 
@@ -38,7 +38,7 @@ public class UserService : IUserService
         _context.SaveChangesAsync();
     }
 
-    public IEnumerable<UserEntity> GetUsers(Func<UserEntity, bool> predicate)
+    public IEnumerable<UserEntity> Get(Func<UserEntity, bool> predicate)
     {
         return _context.Users.Where(predicate).ToList();
     }

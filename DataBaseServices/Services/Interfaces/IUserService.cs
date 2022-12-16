@@ -2,11 +2,11 @@
 
 public interface IUserService
 {
-    public void AddUser(UserEntity userEntity);
+    public void Add(UserEntity userEntity);
 
-    public void UpdateUser(UserEntity userEntity);
+    public void Update(UserEntity userEntity);
 
-    public void DeleteUser(int userId);
+    public void Delete(int userId);
 
-    public IEnumerable<UserEntity> GetUsers(Func<UserEntity, bool> predicate);
+    public IEnumerable<UserEntity> Get(Func<UserEntity, bool> predicate);
 }
