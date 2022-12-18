@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCounter", "Univers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseServices", "DataBaseServices\DataBaseServices.csproj", "{613C9A9D-B424-455E-A9A4-F37970BD9B43}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{6E93090D-91C2-41DF-B08B-CC1A07341957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCounterAPI", "UniversalCounterAPI\UniversalCounterAPI.csproj", "{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +18,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{62C9874F-43B5-4495-9934-08D80B46A80C} = {6659A075-9AF0-4D63-A25D-88C54F0E11CE}
 		{613C9A9D-B424-455E-A9A4-F37970BD9B43} = {6659A075-9AF0-4D63-A25D-88C54F0E11CE}
+		{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F} = {6E93090D-91C2-41DF-B08B-CC1A07341957}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{62C9874F-43B5-4495-9934-08D80B46A80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +29,9 @@ Global
 		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613C9A9D-B424-455E-A9A4-F37970BD9B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24C6C37-9963-4C1F-80EB-D5B7B3B6329F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
