@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Managers" />
+      <ProjectReference Include="..\DataBaseServices\DataBaseServices.csproj" />
     </ItemGroup>
 
 </Project>
