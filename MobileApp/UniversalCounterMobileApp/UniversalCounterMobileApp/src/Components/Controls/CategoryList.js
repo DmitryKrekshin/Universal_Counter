@@ -16,15 +16,16 @@ const CategoryList = props => {
   }, []);
 
   return (
-    <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', padding: 10, width: '100%'}}>
+    <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%'}}>
       {categories ? categories.map(category => <Category category={category}/>) : 'loader'}
       {props.viewMode === ViewMode.Edit ?
-        <Button size='lg' OnPress={}>
-          <Icon name='plus' color='white' size={20} buttonStyle={{
-            width: 70,
-            height: 70,
-            borderRadius: 70
-          }} />
+        <Button buttonStyle={{
+          width: 70,
+          height: 70,
+          borderRadius: 70,
+          margin: 10
+        }}>
+          <Icon name='plus' color='white' size={20}/>
         </Button>
         : ''}
     </View>

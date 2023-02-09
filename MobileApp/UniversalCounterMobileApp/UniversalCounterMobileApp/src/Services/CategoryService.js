@@ -3,8 +3,8 @@ import {GetContext} from "./DbContext";
 const context = GetContext();
 const TABLE_NAME = 'Category';
 
-export function AddCategory(Name, MeasurementUnitId) {
-  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId) values ('${Name}', ${MeasurementUnitId})`;
+export function AddCategory(Name, MeasurementUnitId, IconName, ColorHEX) {
+  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, ColorHEX) values ('${Name}', ${MeasurementUnitId}, {IconName}, {ColorHEX})`;
   _executeQuery(query);
 }
 
@@ -15,6 +15,16 @@ export function UpdateCategoryName(Id, Name) {
 
 export function UpdateCategoryMeasurementUnitId(Id, MeasurementUnitId) {
   const query = `update ${TABLE_NAME} set MeasurementUnitId = ${MeasurementUnitId} where Id = ${Id}`;
+  _executeQuery(query);
+}
+
+export function UpdateCategoryIcon(Id, IconName){
+  const query = `update ${TABLE_NAME} set IconName = ${IconName} where Id = ${Id}`;
+  _executeQuery(query);
+}
+
+export function UpdateCategoryColor(Id, ColorHEX){
+  const query = `update ${TABLE_NAME} set ColorHEX = ${ColorHEX} where Id = ${Id}`;
   _executeQuery(query);
 }
 
@@ -29,7 +39,7 @@ export function DeleteCategory(Id) {
 }
 
 export function GetCategories(callback) {
-  const query = `select Category.Id, Category.Name, Category.Value, MU.Name as MeasurementUnitName
+  const query = `select Category.Id, Category.Name, Category.Value, Category.IconName, Category.ColorHEX, MU.Name as MeasurementUnitName
                  from ${TABLE_NAME}
                  join MeasurementUnit MU on MU.Id = Category.MeasurementUnitId`;
 

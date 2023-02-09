@@ -1,5 +1,4 @@
 import React from 'react';
-import type {Node} from 'react';
 import {
   StatusBar, View, Text
 } from 'react-native';
@@ -42,7 +41,7 @@ function CategoryTabs() {
   )
 }
 
-const App: () => Node = () => {
+const App = () => {
   return (
     <>
       <StatusBar barStyle='dark-content'/>

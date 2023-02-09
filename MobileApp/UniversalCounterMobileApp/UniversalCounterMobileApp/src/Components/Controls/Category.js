@@ -16,6 +16,7 @@ const Category = props => {
         width: 70,
         height: 70,
         borderRadius: 70,
+        margin: 10
       }}
     />
   )
