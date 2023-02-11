@@ -9,6 +9,7 @@ import CategoriesPage from "./src/Components/Pages/CategoriesPage";
 import CategoriesEditModal from "./src/Components/Pages/CategoriesEditModal";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import {Button} from "@rneui/themed";
+import AddCategoryModal from "./src/Components/Pages/AddCategoryModal";
 
 const Tab = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -52,6 +53,9 @@ const App = () => {
           </Tab.Group>
           <Tab.Group screenOptions={{presentation: 'modal', animationEnabled: false}}>
             <Tab.Screen name='EditCategoriesModal' component={CategoriesEditModal} options={{title: 'Изменить категории'}}/>
+          </Tab.Group>
+          <Tab.Group screenOptions={{presentation: 'modal'}}>
+            <Tab.Screen name='AddCategoryModal' component={AddCategoryModal} options={{title: 'Добавить категорию'}} />
           </Tab.Group>
         </Tab.Navigator>
       </NavigationContainer>

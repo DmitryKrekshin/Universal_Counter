@@ -4,7 +4,7 @@ const context = GetContext();
 const TABLE_NAME = 'Category';
 
 export function AddCategory(Name, MeasurementUnitId, IconName, ColorHEX) {
-  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, ColorHEX) values ('${Name}', ${MeasurementUnitId}, {IconName}, {ColorHEX})`;
+  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, ColorHEX) values ('${Name}', ${MeasurementUnitId}, '${IconName}', '${ColorHEX}')`;
   _executeQuery(query);
 }
 
@@ -39,7 +39,7 @@ export function DeleteCategory(Id) {
 }
 
 export function GetCategories(callback) {
-  const query = `select Category.Id, Category.Name, Category.Value, Category.IconName, Category.ColorHEX, MU.Name as MeasurementUnitName
+  const query = `select ${TABLE_NAME}.Id, ${TABLE_NAME}.Name, ${TABLE_NAME}.Value, ${TABLE_NAME}.IconName, ${TABLE_NAME}.ColorHEX, MU.Name as MeasurementUnitName
                  from ${TABLE_NAME}
                  join MeasurementUnit MU on MU.Id = Category.MeasurementUnitId`;
 
@@ -51,9 +51,7 @@ export function GetCategories(callback) {
         let row = result.rows.item(i);
         categories.push({Id: row.Id, Name: row.Name, Value: row.Value, MeasurementUnitName: row.MeasurementUnitName});
       }
-      console.log('category in service');
-      console.log(categories);
-      // return categories;
+
       callback(categories);
     });
   });
