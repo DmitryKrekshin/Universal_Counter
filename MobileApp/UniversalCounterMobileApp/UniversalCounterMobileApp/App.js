@@ -5,7 +5,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import CategoryPage from "./src/Components/Pages/CategoryPage";
+import CategoriesPage from "./src/Components/Pages/CategoriesPage";
 import CategoriesEditModal from "./src/Components/Pages/CategoriesEditModal";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import {Button} from "@rneui/themed";
@@ -27,7 +27,7 @@ function CategoryTabs() {
   return (
     <BottomTab.Navigator>
       <BottomTab.Group>
-        <BottomTab.Screen name='CategoryList' component={CategoryPage} options={{
+        <BottomTab.Screen name='CategoryList' component={CategoriesPage} options={{
           title: 'Ваши категории',
           headerRight: () => (
             <Button size='lg' type='clear'>

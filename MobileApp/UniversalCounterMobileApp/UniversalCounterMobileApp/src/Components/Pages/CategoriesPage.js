@@ -5,7 +5,7 @@ import ViewMode from "../Enums/ViewMode";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import {Button} from "@rneui/themed";
 
-const CategoryPage = ({navigation}) => {
+const CategoriesPage = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -25,4 +25,4 @@ const CategoryPage = ({navigation}) => {
   );
 }
 
-export default CategoryPage;
+export default CategoriesPage;
