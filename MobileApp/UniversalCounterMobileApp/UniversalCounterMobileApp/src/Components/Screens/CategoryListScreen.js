@@ -1,14 +1,14 @@
 import React from 'react';
-import {View} from "react-native";
 import CategoryList from "../Controls/CategoryList";
+import {View} from "react-native";
 import ViewMode from "../Enums/ViewMode";
 
-const CategoriesEditModal = () => {
+const CategoryListScreen = () => {
   return (
     <View>
-      <CategoryList viewMode={ViewMode.Edit} />
+      <CategoryList viewMode={ViewMode.View}/>
     </View>
   );
 }
 
-export default CategoriesEditModal;
+export default CategoryListScreen;
