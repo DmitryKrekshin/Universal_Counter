@@ -13,6 +13,7 @@ const CategoryList = props => {
   useEffect(() => {
     GetCategories((categories) => {
       setCategories(categories);
+      console.log(categories);
     });
   }, []);
 
@@ -28,7 +29,7 @@ const CategoryList = props => {
           borderRadius: 70,
           margin: 10
         }}
-        onPress={() => {navigation.navigate('AddCategoryModal')}}>
+        onPress={() => {navigation.navigate('CategoryUpsert')}}>
           <Icon name='plus' color='white' size={20}/>
         </Button>
         : ''}
