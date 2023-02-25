@@ -3,8 +3,8 @@ import {GetContext} from "./DbContext";
 const context = GetContext();
 const TABLE_NAME = 'Category';
 
-export function AddCategory(Name, MeasurementUnitId, IconName, ColorHEX) {
-  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, ColorHEX) values ('${Name}', ${MeasurementUnitId}, '${IconName}', '${ColorHEX}')`;
+export function AddCategory(Name, MeasurementUnitId, IconName, IconFamily, ColorHEX) {
+  const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, IconFamily, ColorHEX) values ('${Name}', ${MeasurementUnitId}, '${IconName}', '${IconFamily}', '${ColorHEX}')`;
   _executeQuery(query);
 }
 
@@ -18,18 +18,13 @@ export function UpdateCategoryMeasurementUnitId(Id, MeasurementUnitId) {
   _executeQuery(query);
 }
 
-export function UpdateCategoryIcon(Id, IconName){
-  const query = `update ${TABLE_NAME} set IconName = ${IconName} where Id = ${Id}`;
+export function UpdateCategoryIcon(Id, IconName, IconFamily){
+  const query = `update ${TABLE_NAME} set IconName = '${IconName}', IconFamily = '${IconFamily}' where Id = ${Id}`;
   _executeQuery(query);
 }
 
 export function UpdateCategoryColor(Id, ColorHEX){
-  const query = `update ${TABLE_NAME} set ColorHEX = ${ColorHEX} where Id = ${Id}`;
-  _executeQuery(query);
-}
-
-export function UpdateCategory(Id, Name, MeasurementUnitId) {
-  const query = `update ${TABLE_NAME} set Name = '${Name}', MeasurementUnitId = ${MeasurementUnitId} where Id = ${Id}`;
+  const query = `update ${TABLE_NAME} set ColorHEX = '${ColorHEX}' where Id = ${Id}`;
   _executeQuery(query);
 }
 
@@ -39,7 +34,7 @@ export function DeleteCategory(Id) {
 }
 
 export function GetCategories(callback) {
-  const query = `select ${TABLE_NAME}.Id, ${TABLE_NAME}.Name, ${TABLE_NAME}.Value, ${TABLE_NAME}.IconName, ${TABLE_NAME}.ColorHEX, MU.Name as MeasurementUnitName
+  const query = `select ${TABLE_NAME}.Id, ${TABLE_NAME}.Name, ${TABLE_NAME}.Value, ${TABLE_NAME}.IconName, ${TABLE_NAME}.IconFamily, ${TABLE_NAME}.ColorHEX, MU.Name as MeasurementUnitName, MU.Id as MeasurementUnitId
                  from ${TABLE_NAME}
                  join MeasurementUnit MU on MU.Id = Category.MeasurementUnitId`;
 
@@ -49,7 +44,7 @@ export function GetCategories(callback) {
     tx.executeSql(query, [], (tx, result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let row = result.rows.item(i);
-        categories.push({Id: row.Id, Name: row.Name, Value: row.Value, MeasurementUnitName: row.MeasurementUnitName});
+        categories.push({Id: row.Id, Name: row.Name, Value: row.Value, IconName: row.IconName, IconFamily: row.IconFamily, ColorHEX: row.ColorHEX, MeasurementUnitName: row.MeasurementUnitName, MeasurementUnitId: row.MeasurementUnitId});
       }
 
       callback(categories);

@@ -1,9 +1,9 @@
 import React from "react";
-import CategoryModal from "./CategoryModal";
+import CategoryUpsert from "./CategoryUpsert";
 
 const AddCategoryModal = () => {
   return (
-    <CategoryModal />
+    <CategoryUpsert />
   )
 }
 
