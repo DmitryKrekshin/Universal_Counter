@@ -17,6 +17,15 @@ const EditCategoriesScreen = () => {
           navigation.navigate('CategoryUpsertScreen', {category: category, viewMode: ViewMode.Edit});
         });
 
+        categories.push({
+          IconName: 'plus',
+          IconFamily: 'FontAwesome5',
+          ColorHEX: '#848891',
+          onClickAction: () => {
+            navigation.navigate('CategoryUpsertScreen', {viewMode: ViewMode.Create})
+          }
+        });
+
         setCategories(categories);
       });
     }, [])
