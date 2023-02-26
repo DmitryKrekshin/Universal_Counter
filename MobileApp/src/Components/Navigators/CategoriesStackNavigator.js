@@ -36,7 +36,7 @@ const CategoriesStackNavigator = ({ navigation, route }) => {
         <Stack.Screen name="EditCategoriesScreen" component={EditCategoriesScreen} options={{
           title: "Редактирование категорий",
         }} />
-        <Stack.Screen name="CategoryUpsert" component={CategoryUpsertScreen} />
+        <Stack.Screen name="CategoryUpsertScreen" component={CategoryUpsertScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
