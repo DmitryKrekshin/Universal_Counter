@@ -15,7 +15,7 @@ import {
 } from "../../Services/CategoryService";
 import ViewMode from "../Enums/ViewMode";
 
-const CategoryUpsert = ({navigation, route}) => {
+const CategoryUpsertScreen = ({navigation, route}) => {
   const category = route.params?.category;
   const viewMode = route.params?.viewMode ?? ViewMode.Create;
 
@@ -197,4 +197,4 @@ const CategoryUpsert = ({navigation, route}) => {
   );
 };
 
-export default CategoryUpsert;
+export default CategoryUpsertScreen;
