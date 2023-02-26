@@ -4,7 +4,7 @@ import CategoryListScreen from "../Screens/CategoryListScreen";
 import { Button } from "@rneui/themed";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import EditCategoriesScreen from "../Screens/EditCategoriesScreen";
-import CategoryUpsert from "../Pages/CategoryUpsert";
+import CategoryUpsertScreen from "../Screens/CategoryUpsertScreen";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
@@ -36,7 +36,7 @@ const CategoriesStackNavigator = ({ navigation, route }) => {
         <Stack.Screen name="EditCategoriesScreen" component={EditCategoriesScreen} options={{
           title: "Редактирование категорий",
         }} />
-        <Stack.Screen name="CategoryUpsert" component={CategoryUpsert} />
+        <Stack.Screen name="CategoryUpsert" component={CategoryUpsertScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
