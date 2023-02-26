@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from "react-native";
 import CategoryList from "../Controls/CategoryList";
 import ViewMode from "../Enums/ViewMode";
+import {useFocusEffect, useNavigation} from "@react-navigation/native";
+import {GetCategories} from "../../Services/CategoryService";
 
 const EditCategoriesScreen = () => {
+  const [categories, setCategories] = useState([]);
+  const navigation = useNavigation();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      GetCategories((categories) => {
+        categories.forEach(f => f.onClickAction = () => {
+          const {onClickAction, ...category} = f;
+          navigation.navigate('CategoryUpsertScreen', {category: category, viewMode: ViewMode.Edit});
+        });
+
+        setCategories(categories);
+      });
+    }, [])
+  );
+
   return (
     <View>
-      <CategoryList viewMode={ViewMode.Edit} />
+      <CategoryList categories={categories}/>
     </View>
   );
 }
