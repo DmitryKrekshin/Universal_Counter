@@ -1,5 +1,5 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import CategoryListScreen from "../Screens/CategoryListScreen";
 import { Button } from "@rneui/themed";
 import Icon from "react-native-vector-icons/FontAwesome5";
@@ -8,7 +8,7 @@ import CategoryUpsertScreen from "../Screens/CategoryUpsertScreen";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AddValueToCategoryScreen from "../Screens/AddValueToCategoryScreen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const CategoriesStackNavigator = ({ navigation, route }) => {
   React.useLayoutEffect(() => {
@@ -41,7 +41,7 @@ const CategoriesStackNavigator = ({ navigation, route }) => {
         <Stack.Screen name="AddValueToCategoryScreen" component={AddValueToCategoryScreen}
                       options={{
                         presentation: "transparentModal",
-                        headerShown: false,
+                        headerShown: false
                       }} />
       </Stack.Group>
     </Stack.Navigator>

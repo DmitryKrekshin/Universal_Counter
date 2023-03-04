@@ -18,6 +18,7 @@ const EditCategoriesScreen = () => {
         });
 
         categories.push({
+          Id: 0,
           IconName: 'plus',
           IconFamily: 'FontAwesome5',
           ColorHEX: '#848891',

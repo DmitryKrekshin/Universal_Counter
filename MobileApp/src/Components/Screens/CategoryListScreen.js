@@ -12,7 +12,7 @@ const CategoryListScreen = ({navigation}) => {
       GetCategories((categories) => {
         categories.forEach(f => f.onClickAction = () => {
           const {onClickAction, ...category} = f;
-          navigation.navigate('AddValueToCategoryScreen', f);
+          navigation.navigate('AddValueToCategoryScreen', category);
         });
         setCategories(categories);
       });
