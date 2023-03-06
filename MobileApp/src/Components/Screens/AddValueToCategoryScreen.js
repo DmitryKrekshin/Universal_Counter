@@ -49,8 +49,11 @@ const AddValueToCategoryScreen = ({ navigation, route }) => {
           <Text h4={true} style={{alignSelf: 'center'}}>Заметки</Text>
           <Input ref={commentInputReference} onChangeText={(value) => setComment(value)} />
           <View style={{flexDirection: "row", justifyContent: "flex-end"}}>
-            <Button type="clear" onPress={() => setModalVisible(false)}>Отмена</Button>
-            <Button type="clear">ОК</Button>
+            <Button type="clear" onPress={() => {
+              setComment("");
+              setModalVisible(false);
+            }}>Отмена</Button>
+            <Button type="clear" onPress={() => setModalVisible(false)}>ОК</Button>
           </View>
         </View>
       </Modal>
@@ -77,7 +80,7 @@ const AddValueToCategoryScreen = ({ navigation, route }) => {
             <Text h1={true} style={{ textAlign: "center" }}>{value}</Text>
           </View>
           <View style={{ borderBottomColor: "black", borderBottomWidth: StyleSheet.hairlineWidth }}>
-            <Button type="clear" titleStyle={{ color: "grey" }} onPress={() => openModal()}>Заметки...</Button>
+            <Button type="clear" titleStyle={{ color: "grey" }} onPress={() => openModal()}>{comment ? comment : "Заметки..."}</Button>
           </View>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flex: 5 }}>
