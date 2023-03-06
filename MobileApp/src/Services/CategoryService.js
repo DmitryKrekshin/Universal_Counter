@@ -28,6 +28,11 @@ export function UpdateCategoryColor(Id, ColorHEX){
   _executeQuery(query);
 }
 
+export function UpdateCategoryValue(Id, newValue){
+  const query = `update ${TABLE_NAME} set Value = ${newValue} where Id = ${Id}`;
+  _executeQuery(query);
+}
+
 export function DeleteCategory(Id) {
   const query = `delete from ${TABLE_NAME} where Id = ${Id}`;
   _executeQuery(query);
