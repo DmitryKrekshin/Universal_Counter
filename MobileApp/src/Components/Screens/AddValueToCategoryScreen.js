@@ -5,6 +5,7 @@ import { useCardAnimation } from "@react-navigation/stack";
 import { Button, Input, Text } from "@rneui/themed";
 import VirtualKeyboard from "react-native-virtual-keyboard";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { UpdateCategoryValue } from "../../Services/CategoryService";
 
 const AddValueToCategoryScreen = ({ navigation, route }) => {
   const category = route.params;
@@ -89,7 +90,7 @@ const AddValueToCategoryScreen = ({ navigation, route }) => {
             <View style={{ flex: 1 }}>
               <View style={{ flex: 1 }}></View>
               <View style={{ flex: 1 }}>
-                <Button buttonStyle={{ height: "100%" }}>
+                <Button buttonStyle={{ height: "100%" }} onPress={() => UpdateCategoryValue(category.Id, category.Value + value)}>
                   <Icon name="check" />
                 </Button>
               </View>
