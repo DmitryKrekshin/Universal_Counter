@@ -90,7 +90,10 @@ const AddValueToCategoryScreen = ({ navigation, route }) => {
             <View style={{ flex: 1 }}>
               <View style={{ flex: 1 }}></View>
               <View style={{ flex: 1 }}>
-                <Button buttonStyle={{ height: "100%" }} onPress={() => UpdateCategoryValue(category.Id, category.Value + value)}>
+                <Button buttonStyle={{ height: "100%" }} onPress={() => {
+                  UpdateCategoryValue(category.Id, parseFloat(category.Value) + parseFloat(value));
+                  navigation.goBack();
+                }}>
                   <Icon name="check" />
                 </Button>
               </View>

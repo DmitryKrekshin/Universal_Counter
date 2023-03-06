@@ -24,7 +24,7 @@ const Category = props => {
         }}>
         <Icon name={category.IconName} size={40} />
       </ Button>
-      <Text>
+      <Text style={{textAlign: 'center', maxWidth: 90}}>
         {category.Value} {category.MeasurementUnitName}
       </Text>
     </View>
