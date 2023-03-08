@@ -68,7 +68,7 @@ const AddValueToCategoryScreen = ({ navigation, route }) => {
               {
                 translateY: current.progress.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [height, height * 0.45],
+                  outputRange: [height, height * 0.50],
                   extrapolate: "clamp",
                 }),
               },
