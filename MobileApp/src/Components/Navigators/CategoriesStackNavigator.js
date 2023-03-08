@@ -1,19 +1,20 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import CategoryListScreen from "../Screens/CategoryListScreen";
 import { Button } from "@rneui/themed";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import EditCategoriesScreen from "../Screens/EditCategoriesScreen";
 import CategoryUpsertScreen from "../Screens/CategoryUpsertScreen";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import AddValueToCategoryScreen from "../Screens/AddValueToCategoryScreen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const CategoriesStackNavigator = ({ navigation, route }) => {
   React.useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
 
-    if (routeName === "CategoryUpsert" || routeName === "EditCategoriesScreen") {
+    if (routeName === "CategoryUpsert" || routeName === "EditCategoriesScreen" || routeName === "AddValueToCategoryScreen") {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
       navigation.setOptions({ tabBarStyle: { display: "flex" } });
@@ -37,6 +38,11 @@ const CategoriesStackNavigator = ({ navigation, route }) => {
           title: "Редактирование категорий",
         }} />
         <Stack.Screen name="CategoryUpsertScreen" component={CategoryUpsertScreen} />
+        <Stack.Screen name="AddValueToCategoryScreen" component={AddValueToCategoryScreen}
+                      options={{
+                        presentation: "transparentModal",
+                        headerShown: false
+                      }} />
       </Stack.Group>
     </Stack.Navigator>
   );

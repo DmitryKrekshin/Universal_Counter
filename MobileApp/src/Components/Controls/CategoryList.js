@@ -2,7 +2,7 @@ import React from "react";
 import {View} from "react-native";
 import Category from "./Category";
 
-// Чтобы установить действия которые выполняется по нажатию на иконку категории нужно в передаваемого объекте категории указать onClickAction, которая должна быть функцией
+// Чтобы установить действия, которые выполняется по нажатию на иконку категории в передаваемом объекте categories должны быть поля onClickAction, типа функция
 const CategoryList = props => {
   const categories = props.categories;
 
