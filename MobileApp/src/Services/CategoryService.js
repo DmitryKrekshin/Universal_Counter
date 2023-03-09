@@ -1,7 +1,7 @@
-import {GetContext} from "./DbContext";
+import { GetContext } from "./DbContext";
 
 const context = GetContext();
-const TABLE_NAME = 'Category';
+const TABLE_NAME = "Category";
 
 export function AddCategory(Name, MeasurementUnitId, IconName, IconFamily, ColorHEX) {
   const query = `insert into ${TABLE_NAME} (Name, MeasurementUnitId, IconName, IconFamily, ColorHEX) values ('${Name}', ${MeasurementUnitId}, '${IconName}', '${IconFamily}', '${ColorHEX}')`;
@@ -18,17 +18,17 @@ export function UpdateCategoryMeasurementUnitId(Id, MeasurementUnitId) {
   _executeQuery(query);
 }
 
-export function UpdateCategoryIcon(Id, IconName, IconFamily){
+export function UpdateCategoryIcon(Id, IconName, IconFamily) {
   const query = `update ${TABLE_NAME} set IconName = '${IconName}', IconFamily = '${IconFamily}' where Id = ${Id}`;
   _executeQuery(query);
 }
 
-export function UpdateCategoryColor(Id, ColorHEX){
+export function UpdateCategoryColor(Id, ColorHEX) {
   const query = `update ${TABLE_NAME} set ColorHEX = '${ColorHEX}' where Id = ${Id}`;
   _executeQuery(query);
 }
 
-export function UpdateCategoryValue(Id, newValue){
+export function UpdateCategoryValue(Id, newValue) {
   const query = `update ${TABLE_NAME} set Value = ${newValue} where Id = ${Id}`;
   _executeQuery(query);
 }
@@ -49,7 +49,16 @@ export function GetCategories(callback) {
     tx.executeSql(query, [], (tx, result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let row = result.rows.item(i);
-        categories.push({Id: row.Id, Name: row.Name, Value: row.Value, IconName: row.IconName, IconFamily: row.IconFamily, ColorHEX: row.ColorHEX, MeasurementUnitName: row.MeasurementUnitName, MeasurementUnitId: row.MeasurementUnitId});
+        categories.push({
+          Id: row.Id,
+          Name: row.Name,
+          Value: row.Value,
+          IconName: row.IconName,
+          IconFamily: row.IconFamily,
+          ColorHEX: row.ColorHEX,
+          MeasurementUnitName: row.MeasurementUnitName,
+          MeasurementUnitId: row.MeasurementUnitId,
+        });
       }
 
       callback(categories);
