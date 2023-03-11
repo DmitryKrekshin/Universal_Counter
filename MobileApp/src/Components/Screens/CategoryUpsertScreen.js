@@ -82,7 +82,7 @@ const CategoryUpsertScreen = ({navigation, route}) => {
   }
 
   function IsNameValid(name) {
-    return name.length >= 3;
+    return name.length >= 1;
   }
 
   function IsMeasurementUnitValid(value) {
