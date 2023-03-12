@@ -3,11 +3,15 @@ import History from "./History";
 import {View} from "react-native";
 
 const HistoryList = props => {
-  const categoryHistories = props.categoryHistories;
+  const category = props.categoryHistories.category;
+  const histories = props.categoryHistories.histories;
 
   return (
     <View>
-      {typeof categoryHistories === "Array" ? categoryHistories.map(categoryHistory => <History categoryHistory={categoryHistory}/>) : undefined}
+      {histories ? histories.map(history => <History categoryHistory={{
+        category: category,
+        history: history
+      }}/>) : undefined}
     </View>
   );
 }

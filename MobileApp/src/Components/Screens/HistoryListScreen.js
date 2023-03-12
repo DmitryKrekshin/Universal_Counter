@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useFocusEffect} from "@react-navigation/native";
-import {GetCategoryHistories} from "../../Managers/CategoryManager";
+import {GetCategoryHistory} from "../../Managers/CategoryManager";
 import HistoryList from "../Controls/HistoryList";
 
 const HistoryListScreen = ({navigation, route}) => {
@@ -10,9 +10,11 @@ const HistoryListScreen = ({navigation, route}) => {
 
   useFocusEffect(
     React.useCallback(() => {
-      GetCategoryHistories(categoryId, (categoryHistories) => {
-        setCategoryHistories(categoryHistories);
-      });
+      async function main() {
+        await setCategoryHistories(await GetCategoryHistory(categoryId));
+      }
+
+      main();
     }, [])
   );
 

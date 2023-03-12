@@ -1,9 +1,11 @@
 import React from "react";
 import {Pressable, View} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import {Text} from "@rneui/themed";
 
 const History = props => {
-  const categoryHistory = props.categoryHistory;
+  const category = props.categoryHistory.category;
+  const history = props.categoryHistory.history;
   const onClickAction = props.onClick;
 
   return (
@@ -14,13 +16,13 @@ const History = props => {
     }}>
       <View style={{flexDirection: 'row'}}>
         <View style={{flex: 1}}>
-          <Icon name={categoryHistory.IconName} color={categoryHistory.ColorHEX} />
+          <Icon name={category.IconName} color={category.ColorHEX} />
         </View>
         <View style={{flex: 5}}>
-          <Text>{categoryHistory.Name}</Text>
+          <Text>{category.Name}</Text>
         </View>
         <View style={{flex: 1}}>
-          <Text>{categoryHistory.Value}</Text>
+          <Text>{history.Value}</Text>
         </View>
       </View>
     </Pressable>
