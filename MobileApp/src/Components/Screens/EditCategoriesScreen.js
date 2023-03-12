@@ -11,7 +11,9 @@ const EditCategoriesScreen = () => {
 
   useFocusEffect(
     React.useCallback(() => {
-      GetCategories((categories) => {
+      async function main() {
+        let categories = await GetCategories();
+
         categories.forEach(f => f.onClickAction = () => {
           const {onClickAction, ...category} = f;
           navigation.navigate('CategoryUpsertScreen', {category: category, viewMode: ViewMode.Edit});
@@ -28,7 +30,9 @@ const EditCategoriesScreen = () => {
         });
 
         setCategories(categories);
-      });
+      }
+
+      main();
     }, [])
   );
 
