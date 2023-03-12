@@ -9,19 +9,22 @@ const CategoryListScreen = ({navigation}) => {
 
   useFocusEffect(
     React.useCallback(() => {
-      GetCategories((categories) => {
+      async function main() {
+        let categories = await GetCategories();
         categories.forEach(f => f.onClickAction = () => {
           const {onClickAction, ...category} = f;
           navigation.navigate('AddValueToCategoryScreen', category);
         });
         setCategories(categories);
-      });
+      }
+
+      main();
     }, [])
   );
 
   return (
     <View>
-      <CategoryList categories={categories} />
+      <CategoryList categories={categories}/>
     </View>
   );
 }

@@ -1,19 +1,17 @@
-import { GetCategories } from "../Services/CategoryService";
-import { AddHistory, UpdateValue } from "../Services/HistoryService";
+import {GetCategories, UpdateCategoryValue} from "../Services/CategoryService";
+import {AddHistory} from "../Services/HistoryService";
 import ActionType from "../Components/Enums/ActionType";
 
-export function AddValueToCategory(CategoryId, Value, Comment) {
-  let category;
-  GetCategories((categories) => {
-    category = categories.find(f => f.Id === CategoryId);
-  });
+export async function AddValueToCategory(CategoryId, Value, Comment) {
+  let categories = await GetCategories();
+  let category = categories.find(f => f.Id === CategoryId);
 
-  if(!category){
+  if (!category) {
     return;
   }
 
   const newValue = category.Value + Value;
-  UpdateValue(CategoryId, newValue);
+  await UpdateCategoryValue(CategoryId, newValue);
 
-  AddHistory(CategoryId, Value, ActionType.Addition, Date.now(), Comment);
+  await AddHistory(CategoryId, Value, ActionType.Addition, Date.now(), Comment);
 }
