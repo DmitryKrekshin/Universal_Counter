@@ -2,7 +2,7 @@ import {GetContext} from "./DbContext";
 
 const context = GetContext();
 const TABLE_NAME = 'MeasurementUnit';
-
+// todo rewrite to use async/await instead of callbacks
 export function AddMeasurementUnit(Name, ShortName) {
   const query = `insert into ${TABLE_NAME} (Name, ShortName) values ('${Name}', '${ShortName}')`;
   _executeQuery(query);
